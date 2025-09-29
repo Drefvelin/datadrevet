@@ -1,0 +1,219 @@
+### Assignment 1: Raw Data Exploration
+
+## 1. Data Exploration
+
+### a. First 5 Rows (Raw)
+          Time Type  Trial  L Raw X [px]  L Raw Y [px]  R Raw X [px]  R Raw Y [px]  L Dia X [px]  L Dia Y [px]  L Mapped Diameter [mm]  R Dia X [px]  R Dia Y [px]  ...  R EPOS X  R EPOS Y  R EPOS Z  L GVEC X  L GVEC Y  L GVEC Z  R GVEC X  R GVEC Y  R GVEC Z  Frame  Aux1  segment_id
+0  13134048708  SMP      1        811.19        935.56        569.43        958.83         17.37         17.37                    4.42         17.20         17.20  ...     17.56   -116.33    611.80      0.09      0.40     -0.91      0.07      0.42      -0.9    NaN   NaN           0
+1  13134052711  SMP      1        810.94        935.66        569.16        958.81         17.48         17.48                    4.42         17.00         17.00  ...     17.62   -116.25    611.26      0.09      0.40     -0.91      0.07      0.43      -0.9   -1.0   NaN           0
+2  13134056714  SMP      1        810.64        935.78        568.93        958.93         17.45         17.45                    4.43         17.12         17.12  ...     17.72   -116.41    612.11      0.09      0.40     -0.91      0.06      0.43      -0.9   -1.0   NaN           0
+3  13134060718  SMP      1        810.49        935.67        568.72        959.06         17.31         17.31                    4.42         17.28         17.28  ...     17.78   -116.51    612.52      0.09      0.41     -0.91      0.06      0.42      -0.9   -1.0   NaN           0
+4  13134064721  SMP      1        810.32        935.66        568.45        959.03         17.55         17.55                    4.43         17.12         17.12  ...     17.85   -116.54    612.57      0.09      0.41     -0.91      0.07      0.43      -0.9   -1.0   NaN           0
+
+[5 rows x 46 columns]
+
+####TEXT
+
+### Summary Statistics (Transposed, Raw)
+                          count          mean           std           min           25%           50%           75%           max
+Time                    58982.0  1.344963e+10  7.282285e+07  1.313405e+10  1.339309e+10  1.345210e+10  1.351108e+10  1.357005e+10
+Trial                   58982.0  1.000000e+00  0.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00
+L Raw X [px]            58469.0  6.772937e+02  3.269007e+01  5.863900e+02  6.588500e+02  6.699600e+02  6.850300e+02  8.894200e+02
+L Raw Y [px]            58469.0  8.640459e+02  3.690965e+01  3.043700e+02  8.441500e+02  8.614200e+02  8.938900e+02  9.652000e+02
+R Raw X [px]            58489.0  4.203830e+02  3.332540e+01  2.697300e+02  3.998600e+02  4.127600e+02  4.302800e+02  6.269600e+02
+R Raw Y [px]            58489.0  8.838298e+02  3.606594e+01  3.450100e+02  8.625400e+02  8.777500e+02  9.126300e+02  9.900400e+02
+L Dia X [px]            58469.0  1.518867e+01  6.881398e-01  1.191000e+01  1.477000e+01  1.510000e+01  1.553000e+01  2.039000e+01
+L Dia Y [px]            58469.0  1.518867e+01  6.881398e-01  1.191000e+01  1.477000e+01  1.510000e+01  1.553000e+01  2.039000e+01
+L Mapped Diameter [mm]  58469.0  3.602485e+00  1.600681e-01  3.300000e+00  3.500000e+00  3.570000e+00  3.680000e+00  4.470000e+00
+R Dia X [px]            58489.0  1.561040e+01  7.914691e-01  7.690000e+00  1.509000e+01  1.548000e+01  1.602000e+01  2.048000e+01
+R Dia Y [px]            58489.0  1.561040e+01  7.914691e-01  7.690000e+00  1.509000e+01  1.548000e+01  1.602000e+01  2.048000e+01
+R Mapped Diameter [mm]  58489.0  3.753762e+00  1.798019e-01  2.930000e+00  3.630000e+00  3.720000e+00  3.850000e+00  4.640000e+00
+L CR1 X [px]            58466.0  6.735468e+02  3.240842e+01  5.824300e+02  6.553100e+02  6.660600e+02  6.814700e+02  8.836200e+02
+L CR1 Y [px]            58466.0  8.677230e+02  3.636742e+01  3.116600e+02  8.487100e+02  8.639700e+02  8.970300e+02  9.693400e+02
+L CR2 X [px]            58469.0  6.796219e+02  3.236227e+01  5.895900e+02  6.615500e+02  6.720700e+02  6.875000e+02  8.901200e+02
+L CR2 Y [px]            58469.0  8.677045e+02  3.636222e+01  3.116800e+02  8.486900e+02  8.639500e+02  8.970200e+02  9.692100e+02
+R CR1 X [px]            58443.0  4.179070e+02  3.306641e+01  2.669500e+02  3.973000e+02  4.100700e+02  4.273700e+02  6.232500e+02
+R CR1 Y [px]            58443.0  8.877836e+02  3.550849e+01  3.543600e+02  8.671800e+02  8.807100e+02  9.161900e+02  9.937600e+02
+R CR2 X [px]            58450.0  4.238347e+02  3.303347e+01  2.754000e+02  4.033900e+02  4.159900e+02  4.332100e+02  6.287700e+02
+R CR2 Y [px]            58450.0  8.878076e+02  3.552142e+01  3.531600e+02  8.671600e+02  8.807750e+02  9.162000e+02  9.935500e+02
+L POR X [px]            58397.0  9.129177e+02  2.051118e+02  3.377000e+01  7.982900e+02  9.177500e+02  1.049230e+03  2.079440e+03
+L POR Y [px]            58397.0  4.280917e+02  2.068703e+02 -5.059000e+01  2.540200e+02  3.699600e+02  5.730000e+02  1.161270e+03
+R POR X [px]            58397.0  9.129177e+02  2.051118e+02  3.377000e+01  7.982900e+02  9.177500e+02  1.049230e+03  2.079440e+03
+R POR Y [px]            58397.0  4.280917e+02  2.068703e+02 -5.059000e+01  2.540200e+02  3.699600e+02  5.730000e+02  1.161270e+03
+Timing                  58970.0  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+L Validity              58970.0  9.915042e-01  9.178131e-02  0.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00
+R Validity              58970.0  9.918433e-01  8.994607e-02  0.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00
+Pupil Confidence        58970.0  1.983347e+00  1.804259e-01  0.000000e+00  2.000000e+00  2.000000e+00  2.000000e+00  2.000000e+00
+L Plane                 58970.0 -1.000000e+00  0.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00
+R Plane                 58970.0 -1.000000e+00  0.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00
+L EPOS X                58465.0 -8.931502e+00  7.857883e+00 -5.815000e+01 -1.092000e+01 -7.110000e+00 -4.500000e+00  1.255000e+01
+L EPOS Y                58469.0 -8.560114e+01  9.288992e+00 -1.195100e+02 -9.247000e+01 -8.414000e+01 -8.093000e+01  3.913000e+01
+L EPOS Z                58469.0  5.709598e+02  1.096698e+01  4.636100e+02  5.639300e+02  5.693200e+02  5.754600e+02  6.533300e+02
+R EPOS X                58489.0  5.291438e+01  7.883537e+00  3.400000e+00  5.108000e+01  5.486000e+01  5.733000e+01  7.526000e+01
+R EPOS Y                58489.0 -9.120250e+01  9.240647e+00 -1.248600e+02 -9.833000e+01 -8.906000e+01 -8.638000e+01  3.156000e+01
+R EPOS Z                58489.0  5.758889e+02  1.207351e+01  4.748600e+02  5.688200e+02  5.741000e+02  5.812100e+02  6.549300e+02
+L GVEC X                54488.0 -2.163174e-02  6.518128e-02 -2.800000e-01 -6.000000e-02 -3.000000e-02  2.000000e-02  4.700000e-01
+L GVEC Y                58469.0  3.230784e-01  5.113393e-02  4.000000e-02  2.900000e-01  3.400000e-01  3.600000e-01  4.300000e-01
+L GVEC Z                58469.0 -9.423590e-01  1.808621e-02 -1.000000e+00 -9.600000e-01 -9.400000e-01 -9.300000e-01 -8.400000e-01
+R GVEC X                56076.0 -6.375098e-02  6.091126e-02 -3.100000e-01 -1.000000e-01 -6.000000e-02 -3.000000e-02  4.700000e-01
+R GVEC Y                58489.0  3.461962e-01  4.984189e-02  6.000000e-02  3.100000e-01  3.600000e-01  3.800000e-01  4.500000e-01
+R GVEC Z                58489.0 -9.325897e-01  1.981519e-02 -9.900000e-01 -9.500000e-01 -9.300000e-01 -9.200000e-01 -8.400000e-01
+Frame                   58969.0 -1.000000e+00  0.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00 -1.000000e+00
+Aux1                        0.0           NaN           NaN           NaN           NaN           NaN           NaN           NaN
+segment_id              58982.0  6.579482e+00  3.135731e+00  0.000000e+00  3.000000e+00  9.000000e+00  9.000000e+00  1.200000e+01
+
+####TEXT
+
+### Data Types
+Time                        int64
+Type                       object
+Trial                       int64
+L Raw X [px]              float64
+L Raw Y [px]              float64
+R Raw X [px]              float64
+R Raw Y [px]              float64
+L Dia X [px]              float64
+L Dia Y [px]              float64
+L Mapped Diameter [mm]    float64
+R Dia X [px]              float64
+R Dia Y [px]              float64
+R Mapped Diameter [mm]    float64
+L CR1 X [px]              float64
+L CR1 Y [px]              float64
+L CR2 X [px]              float64
+L CR2 Y [px]              float64
+R CR1 X [px]              float64
+R CR1 Y [px]              float64
+R CR2 X [px]              float64
+R CR2 Y [px]              float64
+L POR X [px]              float64
+L POR Y [px]              float64
+R POR X [px]              float64
+R POR Y [px]              float64
+Timing                    float64
+L Validity                float64
+R Validity                float64
+Pupil Confidence          float64
+L Plane                   float64
+R Plane                   float64
+L EPOS X                  float64
+L EPOS Y                  float64
+L EPOS Z                  float64
+R EPOS X                  float64
+R EPOS Y                  float64
+R EPOS Z                  float64
+L GVEC X                  float64
+L GVEC Y                  float64
+L GVEC Z                  float64
+R GVEC X                  float64
+R GVEC Y                  float64
+R GVEC Z                  float64
+Frame                     float64
+Aux1                      float64
+segment_id                  int64
+dtype: object
+
+####TEXT
+
+### Missing Values
+L Raw X [px]                513
+L Raw Y [px]                513
+R Raw X [px]                493
+R Raw Y [px]                493
+L Dia X [px]                513
+L Dia Y [px]                513
+L Mapped Diameter [mm]      513
+R Dia X [px]                493
+R Dia Y [px]                493
+R Mapped Diameter [mm]      493
+L CR1 X [px]                516
+L CR1 Y [px]                516
+L CR2 X [px]                513
+L CR2 Y [px]                513
+R CR1 X [px]                539
+R CR1 Y [px]                539
+R CR2 X [px]                532
+R CR2 Y [px]                532
+L POR X [px]                585
+L POR Y [px]                585
+R POR X [px]                585
+R POR Y [px]                585
+Timing                       12
+L Validity                   12
+R Validity                   12
+Pupil Confidence             12
+L Plane                      12
+R Plane                      12
+L EPOS X                    517
+L EPOS Y                    513
+L EPOS Z                    513
+R EPOS X                    493
+R EPOS Y                    493
+R EPOS Z                    493
+L GVEC X                   4494
+L GVEC Y                    513
+L GVEC Z                    513
+R GVEC X                   2906
+R GVEC Y                    493
+R GVEC Z                    493
+Frame                        13
+Aux1                      58982
+dtype: int64
+
+####TEXT
+
+### Outliers (IQR per segment)
+Column	Outliers
+------------------------------
+L Raw X [px]	2526
+L Raw Y [px]	3276
+R Raw X [px]	1266
+R Raw Y [px]	3014
+L Dia X [px]	702
+L Dia Y [px]	702
+L Mapped Diameter [mm]	984
+R Dia X [px]	704
+R Dia Y [px]	704
+R Mapped Diameter [mm]	891
+L CR1 X [px]	2646
+L CR1 Y [px]	3489
+L CR2 X [px]	2681
+L CR2 Y [px]	3501
+R CR1 X [px]	1293
+R CR1 Y [px]	3129
+R CR2 X [px]	1275
+R CR2 Y [px]	3128
+L POR X [px]	942
+L POR Y [px]	1033
+R POR X [px]	942
+R POR Y [px]	1033
+L Validity	501
+R Validity	481
+Pupil Confidence	505
+L EPOS X	2596
+L EPOS Y	4047
+L EPOS Z	2812
+R EPOS X	2745
+R EPOS Y	5226
+R EPOS Z	2713
+L GVEC X	563
+L GVEC Y	1459
+L GVEC Z	875
+R GVEC X	695
+R GVEC Y	1180
+R GVEC Z	1107
+
+####TEXT
+
+### Unique Values in Categorical Columns (Raw)
+- Type: 2 unique values → ['SMP', 'MSG']
+
+####TEXT
+
+## 2. Notes
+
+This report is based on the raw dataset only.
+Cleaning (e.g. interpolation, outlier removal) is not applied here.
+####TEXT
+
+### END OF RAW DATA REPORT ###
